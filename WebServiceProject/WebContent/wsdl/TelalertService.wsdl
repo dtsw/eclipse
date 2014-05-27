@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ofrick.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ofrick.com" xmlns:intf="http://ofrick.com" xmlns:tns1="http://axis2.apache.org" xmlns:tns2="http://lang.java" xmlns:tns3="http://om.axiom.apache.org" xmlns:tns4="http://soap.axiom.apache.org" xmlns:tns5="http://context.axis2.apache.org" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ofrick.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://context.axis2.apache.org"/>
+   <import namespace="http://soap.axiom.apache.org"/>
+   <import namespace="http://axis2.apache.org"/>
+   <import namespace="http://om.axiom.apache.org"/>
+   <import namespace="http://lang.java"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <element name="setTelalert">
+    <complexType>
+     <sequence>
+      <element name="telalert" type="impl:TelalertEntry"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="TelalertEntry">
+    <sequence>
+     <element name="alertDefName" nillable="true" type="xsd:string"/>
+     <element name="alertId" nillable="true" type="xsd:string"/>
+     <element name="client" nillable="true" type="xsd:string"/>
+     <element name="escalationScheme" nillable="true" type="xsd:string"/>
+     <element name="message" nillable="true" type="xsd:string"/>
+     <element name="resourceName" nillable="true" type="xsd:string"/>
+     <element name="system" nillable="true" type="xsd:string"/>
+     <element name="timeStamp" nillable="true" type="xsd:string"/>
+     <element name="tts" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="setTelalertResponse">
+    <complexType/>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="fault" type="tns1:AxisFault"/>
+   <element name="getTelalertByEscalation">
+    <complexType>
+     <sequence>
+      <element name="escalation" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTelalertByEscalationResponse">
+    <complexType>
+     <sequence>
+      <element name="getTelalertByEscalationReturn" type="impl:TelalertEntry"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://context.axis2.apache.org"/>
+   <import namespace="http://ofrick.com"/>
+   <import namespace="http://soap.axiom.apache.org"/>
+   <import namespace="http://axis2.apache.org"/>
+   <import namespace="http://om.axiom.apache.org"/>
+   <import namespace="http://lang.java"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://axis2.apache.org" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://context.axis2.apache.org"/>
+   <import namespace="http://ofrick.com"/>
+   <import namespace="http://soap.axiom.apache.org"/>
+   <import namespace="http://om.axiom.apache.org"/>
+   <import namespace="http://lang.java"/>
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <complexType name="AxisFault">
+    <sequence>
+     <element name="cause" nillable="true" type="xsd:anyType"/>
+     <element name="detail" nillable="true" type="xsd:anyType"/>
+     <element name="faultAction" nillable="true" type="xsd:string"/>
+     <element name="faultCode" nillable="true" type="xsd:QName"/>
+     <element name="faultCodeElement" nillable="true" type="xsd:anyType"/>
+     <element name="faultDetailElement" nillable="true" type="xsd:anyType"/>
+     <element name="faultMessageContext" nillable="true" type="xsd:anyType"/>
+     <element name="faultNode" nillable="true" type="xsd:string"/>
+     <element name="faultNodeElement" nillable="true" type="xsd:anyType"/>
+     <element name="faultReasonElement" nillable="true" type="xsd:anyType"/>
+     <element name="faultRole" nillable="true" type="xsd:string"/>
+     <element name="faultRoleElement" nillable="true" type="xsd:anyType"/>
+     <element name="faultSubCodes" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+     <element name="faultType" type="xsd:int"/>
+     <element name="message" nillable="true" type="xsd:string"/>
+     <element name="nodeURI" nillable="true" type="xsd:string"/>
+     <element name="reason" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="setTelalertRequest">
+
+      <wsdl:part element="impl:setTelalert" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTelalertByEscalationRequest">
+
+      <wsdl:part element="impl:getTelalertByEscalation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="AxisFault">
+
+      <wsdl:part element="impl:fault" name="fault">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTelalertByEscalationResponse">
+
+      <wsdl:part element="impl:getTelalertByEscalationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="setTelalertResponse">
+
+      <wsdl:part element="impl:setTelalertResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TelalertService">
+
+      <wsdl:operation name="setTelalert">
+
+         <wsdl:input message="impl:setTelalertRequest" name="setTelalertRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:setTelalertResponse" name="setTelalertResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:AxisFault" name="AxisFault">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTelalertByEscalation">
+
+         <wsdl:input message="impl:getTelalertByEscalationRequest" name="getTelalertByEscalationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTelalertByEscalationResponse" name="getTelalertByEscalationResponse">
+
+       </wsdl:output>
+
+         <wsdl:fault message="impl:AxisFault" name="AxisFault">
+
+       </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TelalertServiceSoapBinding" type="impl:TelalertService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="setTelalert">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setTelalertRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setTelalertResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="AxisFault">
+
+            <wsdlsoap:fault name="AxisFault" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTelalertByEscalation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTelalertByEscalationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTelalertByEscalationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+         <wsdl:fault name="AxisFault">
+
+            <wsdlsoap:fault name="AxisFault" use="literal"/>
+
+         </wsdl:fault>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TelalertServiceService">
+
+      <wsdl:port binding="impl:TelalertServiceSoapBinding" name="TelalertService">
+
+         <wsdlsoap:address location="http://tempuri.org/WebServiceProject/services/TelalertService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,89 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TelalertServiceService WSDL service -->
+
+  <service name="TelalertService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://ofrick.com"/>
+      <parameter name="wsdlServiceElement" value="TelalertServiceService"/>
+      <parameter name="schemaQualified" value="http://xml.apache.org/xml-soap,http://axis2.apache.org,http://ofrick.com"/>
+      <parameter name="wsdlServicePort" value="TelalertService"/>
+      <parameter name="className" value="com.ofrick.TelalertServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="TelalertService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="setTelalert" qname="operNS:setTelalert" xmlns:operNS="http://ofrick.com" soapAction="" >
+        <parameter qname="pns:telalert" xmlns:pns="http://ofrick.com" type="tns:TelalertEntry" xmlns:tns="http://ofrick.com"/>
+        <fault name="AxisFault" qname="fns:fault" xmlns:fns="http://ofrick.com" class="org.apache.axis2.AxisFault" type="tns:AxisFault" xmlns:tns="http://axis2.apache.org"/>
+      </operation>
+      <operation name="getTelalertByEscalation" qname="operNS:getTelalertByEscalation" xmlns:operNS="http://ofrick.com" returnQName="retNS:getTelalertByEscalationReturn" xmlns:retNS="http://ofrick.com" returnType="rtns:TelalertEntry" xmlns:rtns="http://ofrick.com" soapAction="" >
+        <parameter qname="pns:escalation" xmlns:pns="http://ofrick.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <fault name="AxisFault" qname="fns:fault" xmlns:fns="http://ofrick.com" class="org.apache.axis2.AxisFault" type="tns:AxisFault" xmlns:tns="http://axis2.apache.org"/>
+      </operation>
+      <parameter name="allowedMethods" value="setTelalert getTelalertByEscalation"/>
+
+      <typeMapping
+        xmlns:ns="http://ofrick.com"
+        qname="ns:>getTelalertByEscalation"
+        type="java:com.ofrick.GetTelalertByEscalation"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://ofrick.com"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ofrick.com"
+        qname="ns:>setTelalertResponse"
+        type="java:com.ofrick.SetTelalertResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ofrick.com"
+        qname="ns:TelalertEntry"
+        type="java:com.ofrick.TelalertEntry"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ofrick.com"
+        qname="ns:>setTelalert"
+        type="java:com.ofrick.SetTelalert"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://ofrick.com"
+        qname="ns:>getTelalertByEscalationResponse"
+        type="java:com.ofrick.GetTelalertByEscalationResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://axis2.apache.org"
+        qname="ns:AxisFault"
+        type="java:org.apache.axis2.AxisFault"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
