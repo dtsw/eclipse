@@ -8,7 +8,7 @@ public class SOAPClientGet {
 
 
 		//String debugArgs = "EAI___Test___blaaa___12345___201405161307___This is a message";
-		//split command line arguments
+		//split command line arguments 
 		//String[] params = args[0].split("___");
 
 		// Create SOAP Connection
