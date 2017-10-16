@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE orm SYSTEM "file:/javax/jdo/orm.dtd">
+<orm>
+    <package name="org.datanucleus.samples.jdo.tutorial">
+
+		<class name="Subscriber" table="SUBSCRIBER">
+            <inheritance strategy="new-table"/>
+            <field name="id">
+                <column name="SUBSCRIBER_ID"/>
+            </field>
+            <field name="type">
+            	<column name="SUBSCRIBER_TYPE"/>
+            </field>
+        </class>
+        
+        <class name="Group" table="GROUP">
+        	<field name="name">
+                <column name="GROUP_NAME" length="100"/>
+            </field>
+            <field name="subscribers" table="GROUP_SUBSCRIBER">
+                <join/>
+            </field>
+        </class>
+                
+        <class name="Person" table="PERSON">
+            <inheritance strategy="new-table"/>
+            <field name="username">
+                <column name="USERNAME" length="10"/>
+            </field>
+            <field name="firstname">
+                <column name="FIRSTNAME" length="100"/>
+            </field>
+            <field name="lastname">
+                <column name="LASTNAME" length="100"/>
+            </field>
+            <field name="devices" table="PERSON_DEVICE">
+                <join/>
+            </field>
+        </class>
+        
+        <class name="Device" table="DEVICE">
+            <inheritance strategy="new-table"/>
+            <field name="type">
+                <column name="TYPE" length="10"/>
+            </field>
+            <field name="address">
+                <column name="ADDRESS" length="100"/>
+            </field>            
+        </class>
+
+    </package>
+</orm>

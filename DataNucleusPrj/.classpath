@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="C:/Users/oliver/workspace/DataNucleusPrj/lib/javax.jdo-3.2.0-m7.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oliver/workspace/DataNucleusPrj/lib/datanucleus-api-jdo-5.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oliver/workspace/DataNucleusPrj/lib/datanucleus-core-5.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oliver/workspace/DataNucleusPrj/lib/datanucleus-rdbms-5.1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oliver/workspace/DataNucleusPrj/lib/datanucleus-jdo-query-5.0.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/oliver/workspace/DataNucleusPrj/lib/derbyclient-10.11.1.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
